@@ -10,10 +10,25 @@
 <body>
     <main>
         <div id="app">
+            <h2>User Data for My App</h2>
+            <hr>
+            <article>
+                <h4 class="hidden"></h4>
+                <h5>Sumpin sumpin</h5>
+                <p> 
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quibusdam, vel doloribus nam placeat ipsa quasi! Quibusdam corrupti voluptate quas laboriosam id animi repellat cum, assumenda magni, nihil odit impedit!
+                </p>
+
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis nemo recusandae eos, asperiores facilis, suscipit expedita quod distinctio eveniet id temporibus officia laudantium quos consequatur! Veritatis, quis nesciunt. Eos, ex.
+                </p>
+            </article>
+
             <!-- <input type="text" name="userName" placeholder="username">
             <input type="password" name="password" placeholder="password">
             <input type="button" name="submit"  value="Send"> -->
-            <activeusers name="Abhi" role="student">
+
+            <activeusers name="Abhi" role="student" @shoutup="calledOnParent">
                 <h4>Active User Data:</h4>
             </activeusers>
             <activeusers name="Trevor" role="Admin">
@@ -28,6 +43,9 @@
             <p>{{ name }}</p>
             <p>{{ role }}</p>
             <hr>
+            <button v-on:click="logFromChild">Clickey Click</button>
+
+            <button v-on:click="passEvent">Run a main Function</button>
         </div>
     </template>
     <script src="js/main.js"> </script>
