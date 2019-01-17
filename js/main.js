@@ -1,23 +1,24 @@
 (()=>{
     // create a component first
-    const UserComponent = {
-        props: ['name', 'role'],
-
-        template: "#userstemplate",
-
-        created: function(){
-            console.log("I'm aliiiiiive!");
-        },
-        methods: {
-            logFromChild(){
-                console.log("logged from the component");
-            },
-            passEvent(){
-                this.$emit('shoutup');
-            }
-        }
+    const HomePageComponent = {
+        template: "<h2>This is the home page</h2>"
     }
 
+    const UsersPageComponent = {
+        template: "<h2>This is the users page</h2>"
+    }
+    const ContactPageComponent = {
+        template: "<h2>This is the contact page</h2>"
+    }
+
+    const routes = [
+        { path: '/', name: 'home', component: HomePageComponent},
+        { path: '/contact', name: 'contact', component: ContactPageComponent},
+        { path: '/users', name: 'users', component: UsersPageComponent}
+    ]
+    const router = new VueRouter({
+        routes
+    });
     // then your vue instance
 
     const vm = new Vue({
@@ -34,7 +35,12 @@
             console.log("Main Vue instance");
         },
         components: {
-            'activeusers': UserComponent
-        }
-    })
+            'homepagecomponent': HomePageComponent,
+            'userspagecomponent': UsersPageComponent,
+            'contactcomponent': ContactPageComponent
+
+        },
+
+        router:router
+    });
 })();
