@@ -4,11 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
     <title>Document</title>
 </head>
 <body>
     <main>
-        <div id="app"></div>
+        <div id="app">
+            <!-- <input type="text" name="userName" placeholder="username">
+            <input type="password" name="password" placeholder="password">
+            <input type="button" name="submit"  value="Send"> -->
+            <activeusers name="Abhi" role="student">
+                <h4>Active User Data:</h4>
+            </activeusers>
+            <activeusers name="Trevor" role="Admin">
+                    <h4>Active User Data:</h4>
+            </activeusers>
+        </div>
     </main>
+    <!-- component templates  -->
+    <template id="userstemplate">
+        <div>
+            <slot></slot>
+            <p>{{ name }}</p>
+            <p>{{ role }}</p>
+            <hr>
+        </div>
+    </template>
+    <script src="js/main.js"> </script>
 </body>
 </html>
