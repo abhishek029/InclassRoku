@@ -33,7 +33,32 @@
         }
     }
     const ContactPageComponent = {
-        template: "<h2>This is the contact page</h2>"
+        props: ['id'],
+
+        template: "#userList",
+
+        data: function(){
+            return {
+                users: []
+            }
+        },
+
+        created: function(){
+            console.log('user component created');
+            this.fetchUserData(this.id);
+        },
+        methods:{
+            fetchUserData(users){
+                let url=`./includes/index.php?users=${this.id}`;
+
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => this.users = data)
+                .catch(function(error){
+                    console.error(error);
+                })
+            }
+        }
     }
     const ErrorPageComponent = {
         template: "<h2>Page not found! Try again...</h2>"
@@ -41,7 +66,7 @@
 
     const routes = [
         { path: '/', name: 'home', component: HomePageComponent},
-        { path: '/contact', name: 'contact', component: ContactPageComponent},
+        { path: '/contact/:id', name: 'contact', component: ContactPageComponent, props: true},
         { path: '/users/:id', name: 'users', component: UsersPageComponent, props: true},
         { path: '/*', name: 'error', component: ErrorPageComponent }
     ]
