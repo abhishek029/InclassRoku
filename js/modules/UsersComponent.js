@@ -7,7 +7,7 @@ export default{
                 <h1>You are on the Users page</h1>
             </div>
             
-            <user v-for="(user, index) in userList" : liveuser="user" :key="index"></user>
+            <!--<user v-for="(user, index) in userList" : liveuser="user" :key="index"></user>-->
         </div>
     `,
 
