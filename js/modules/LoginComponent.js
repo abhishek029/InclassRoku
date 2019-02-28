@@ -52,8 +52,10 @@ export default{
                     })
                     .then(res => res.json())
                     .then(data => {
-                        if(data == "Login Failed"){
+                        if(typeof data !== "object"){
                             console.log('login attempt failed');
+                            //pop a toast notification
+                            // let user know something broke
                             return;
                         }else{
                             this.$emit("authenticated", true);

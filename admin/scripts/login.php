@@ -61,13 +61,13 @@ function login($username, $password, $ip){
 		}
 
 		if(empty($id)){
-			$message = 'Login Failed';
+			$message = 'Credentials dont match';
 			return $message;
 		}
 
 		// redirect_to('index.php');
 	}else{
-		$message = 'Login Failed';
+		$message = 'User Not Found';
 		return $message;
 	}
 }

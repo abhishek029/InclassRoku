@@ -2,14 +2,19 @@ import UserComponent from './UserComponent.js';
 
 export default{
     template: `
+    <div class="container">
         <div class="row" id="login">
             <div class="col-sm-12">
-                <h1>You are on the Users page</h1>
+                <h1 class="text-center">{{message}}</h1>
             </div>
             
-            <!--<user v-for="(user, index) in userList" : liveuser="user" :key="index"></user>-->
+            <user v-for="(user, index) in userList" :liveuser="user" :key="index"></user>
         </div>
+    </div>
     `,
+    created: function(){
+        this.fetchAllUsers();
+    },
 
     data(){
         return{
@@ -19,7 +24,7 @@ export default{
         }
     },
 
-    method: {
+    methods: {
         fetchAllUsers(){
             let url = `./admin/scripts/users.php?allUsers=true`;
 
