@@ -1,5 +1,5 @@
 <?php
-    required_once('../admin/scripts/config.php');
+    require_once('config.php');
 
     if(isset($_GET['media'])){
         $type = $_GET['media'];
