@@ -53,6 +53,10 @@ function filterResults($tbl,$tbl_2,$tbl_3,$col,$col_2,$col_3,$filter){
 
 	$runQuery = $pdo->query($filterQuery);
 	if($runQuery){
+		$results = array();
+		while($row = $runQuery->fetch(PDO::FETCH_ASSOC)){
+			$results[] = $row;
+		}
 		return $runQuery;
 	}else{
 		$error = 'There was a problem';
